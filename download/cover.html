@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO Audit Cover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: 794px 1123px; margin: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 794px;
+    height: 1123px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #f4f3f1;
+    font-family: 'Inter', sans-serif;
+  }
+  .cover {
+    position: relative;
+    width: 794px;
+    height: 1123px;
+    background: #f4f3f1;
+  }
+  /* Layer 1: Decorative geometric accents */
+  .accent-bar-top {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 6px;
+    background: #2390b4;
+  }
+  .accent-line-left {
+    position: absolute;
+    top: 120px; left: 56px;
+    width: 2px; height: 280px;
+    background: #2390b4;
+    opacity: 0.35;
+  }
+  .accent-square {
+    position: absolute;
+    bottom: 140px; right: 80px;
+    width: 80px; height: 80px;
+    border: 2px solid #2390b4;
+    opacity: 0.18;
+    transform: rotate(12deg);
+  }
+  .accent-dot {
+    position: absolute;
+    top: 260px; right: 120px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: #2390b4;
+    opacity: 0.25;
+  }
+  /* Layer 3: Text */
+  .kicker {
+    position: absolute;
+    top: 140px; left: 80px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #89867d;
+  }
+  .hero-title {
+    position: absolute;
+    top: 190px; left: 80px;
+    width: 600px;
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #201f1d;
+  }
+  .domain-label {
+    position: absolute;
+    top: 370px; left: 80px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2390b4;
+  }
+  .summary-block {
+    position: absolute;
+    top: 430px; left: 80px;
+    width: 540px;
+    padding: 24px 28px;
+    background: rgba(35,144,180,0.06);
+    border-left: 3px solid #2390b4;
+  }
+  .summary-text {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #201f1d;
+  }
+  .meta-row {
+    position: absolute;
+    bottom: 80px; left: 80px;
+    font-size: 13px;
+    color: #89867d;
+    line-height: 1.8;
+  }
+  .meta-row span {
+    display: block;
+  }
+  .score-badge {
+    position: absolute;
+    bottom: 80px; right: 80px;
+    width: 110px; height: 110px;
+    border: 3px solid #2390b4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .score-number {
+    font-size: 38px;
+    font-weight: 800;
+    color: #2390b4;
+  }
+  .score-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #89867d;
+  }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="accent-bar-top"></div>
+  <div class="accent-line-left"></div>
+  <div class="accent-square"></div>
+  <div class="accent-dot"></div>
+
+  <div class="kicker">COMPREHENSIVE SEO AUDIT</div>
+  <div class="hero-title">Tangison.com<br>Site Audit Report</div>
+  <div class="domain-label">tangison.com</div>
+
+  <div class="summary-block">
+    <div class="summary-text">
+      Canonical URLs incorrectly point to tangison-labs.vercel.app instead of tangison.com, resulting in zero Google index coverage. Zero structured data across all 39 pages. Four subpages have duplicate brand names in title tags. Critical fixes required before any content or authority work can be effective.
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <span>Audit Date: 15 June 2026</span>
+    <span>Framework: Next.js 16 / Vercel</span>
+    <span>Pages Audited: 39 + 4 subdomains</span>
+    <span>Report by: Z.ai</span>
+  </div>
+
+  <div class="score-badge">
+    <div class="score-number">3.2</div>
+    <div class="score-label">/10 Health</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,66 +1,23 @@
 ---
-Task ID: 1
-Agent: Main
-Task: Clone tangison website and studio-os from GitHub, set up environment
-
-Work Log:
-- Authenticated with GitHub using provided PAT (user: tangison)
-- Listed all repos — identified "tangison" (main website) and "studio-os"
-- Cloned https://github.com/tangison/tangison.git to /home/z/my-project/tangison
-- Cloned https://github.com/tangison/studio-os.git to /home/z/my-project/studio-os
-- Installed npm dependencies for tangison website (361 packages)
-- Read and analyzed key config: package.json, .env.example, globals.css
-- Read studio-os context: AGENTS.md, agent.ctx, brief.md, memory files, standards
-
-Stage Summary:
-- tangison website: Next.js 16 + React 19 + Tailwind 4 + Framer Motion + GSAP + z-ai-web-dev-sdk
-- studio-os: Autonomous agent OS v2.3.0 with skill routing, brand system, SADC rules
-- Both repos are cloned and ready at /home/z/my-project/
-- Website dependencies installed, ready for dev server
-
----
-Task ID: 2
-Agent: Main
-Task: Fix hero section for cross-browser rendering across all devices
-
-Work Log:
-- Fixed viewport meta tag: Added explicit `viewport` export (width=device-width, initialScale=1.0) with no maximum-scale or user-scalable=no
-- Replaced all 100vh/min-h-screen with dvh fallback chain: 700px → 100vh → 100dvh (hero + site-shell)
-- Eliminated rotation bugs: Removed perspective="800px" from h1, removed rotateX:-15 from GSAP animation, changed to simple y-offset reveal
-- Made typography zoom-proof with clamp(): headline clamp(2.5rem,6vw,6rem), eyebrow clamp(0.75rem,1.5vw,1rem), CTA buttons clamp(0.625rem,1vw,0.75rem), SCROLL text clamp(0.5rem,0.8vw,0.5625rem)
-- Added dynamic navbar height measurement via useEffect + resize listener — hero content never hides behind nav
-- Added overflow-x:hidden + max-width:100% on html, body, and site-shell
-- Simplified hero content: removed body paragraph, kept only eyebrow + headline + 2 CTAs
-- Build: ✅ passes with zero errors, TypeScript: ✅ zero errors
-- Committed as Tangison/tangison@proton.me, pushed to main
-
-Stage Summary:
-- Hero is now bulletproof across mobile/tablet/desktop/PC browsers
-- dvh fallback chain covers: old browsers (700px), legacy (100vh), modern (100dvh)
-- No rotation, no perspective, no transform bugs possible
-- Fluid typography scales from 50% to 200% zoom without layout break
-- Content always starts below navbar via dynamic height measurement
-- Deployed to GitHub — Vercel will auto-deploy
----
-Task ID: 1
+Task ID: p1-p4
 Agent: Main Agent
-Task: Full production audit and fixes across all TANGISON domains
+Task: Execute comprehensive 4-phase SEO remediation on tangison.com
 
 Work Log:
-- Installed squirrelscan CLI (v0.0.40) via npm
-- Ran full coverage audits on 5 domains: tangison.com, sme-academy.tangison.com, skills.tangison.com, feorm.tangison.com, studio.tangison.com
-- Cloned all 4 repos (tangison, smefrog-academy, feorm, tangison-studio) - skills.tangison.com repo not found
-- Dispatched parallel fix agents for each domain
-- Implemented comprehensive fixes across all repos
-- Added legal redirects (/privacy, /terms, /cookies) on tangison.com to fix broken links from subdomains
-- Hardcoded tangison.com domain in sitemap.ts to fix Vercel env var domain mismatch
-- Fixed honeypot accessibility (inert attribute) on both tangison.com and studio contact forms
-- Fixed meta descriptions, heading order, og:url mismatches across tangison.com pages
-- Re-audited all domains after fixes
+- Phase 1: Fixed metadataBase to https://tangison.com, added www redirect + trailingSlash config, removed duplicate | TANGISON from 36 page titles, updated robots.txt with /api/ and /_next/ disallow, fixed sitemap lastModified dates, added /studio to sitemap, created articles data layer with 6 articles, created dynamic [slug] article routes, removed Coming Soon from article cards
+- Phase 2: Created JsonLd component, added Organization + WebSite schema to homepage, Article schema to article pages, Service schema to service pages, Product schema to product pages, BreadcrumbList schema to all pages via generateBreadcrumb utility, added openGraph.url to all pages
+- Phase 3: Dynamic sitemap generation from articles data, article OG metadata (publishedTime, authors, tags), created 6 new routes (/tools/ai-readiness-calculator, /insights/reports/namibia-ai-report, /insights/guides/deployment, /insights/articles/self-hosted-vs-cloud-ai, /faq, /about/authors/[slug]), FAQPage JSON-LD, Person schema for author pages
+- Phase 4: Created /about/kapatashu executive CV page with Person JSON-LD, professional content, BreadcrumbList
+- Pushed to GitHub (2 commits: main implementation + title fix)
+- Deployed to Vercel production, verified all fixes live
 
 Stage Summary:
-- tangison.com: 81 → 94 (Grade A) - Core SEO 100, Links 100, Security 97
-- studio.tangison.com: 77 → 78 (deployment pending)
-- sme-academy.tangison.com: 36 → pending Vercel deploy
-- feorm.tangison.com: 38 → pending Vercel deploy
-- skills.tangison.com: 52 → no repo found, legal redirects added on tangison.com to fix broken links
+- 84 files changed, 2476 insertions, 228 deletions
+- Critical fix: canonical URLs now point to tangison.com (was vercel.app)
+- All title tags clean (no duplication)
+- robots.txt updated with /api/ and /_next/ disallow
+- Structured data: Organization, WebSite, Article, Service, Product, BreadcrumbList, Person, FAQPage schemas
+- 6 new content routes scaffolded
+- Build: 0 errors, 59 pages generated
+- Live at https://tangison-sand.vercel.app (production alias)
+- Subdomain repos not available locally — noted for separate remediation
